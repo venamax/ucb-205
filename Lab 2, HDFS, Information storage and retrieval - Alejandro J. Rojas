@@ -1,0 +1,39 @@
+
+
+Lab 2, HDFS, Information storage and retrieval - Alejandro J. Rojas
+
+
+t
+This notebook summarizes the questions for Lab Week 2 related to teh use of distrubuted file systems like Hadoop. Prior to answering the questions I created a HDFS directory on my AWS instance. Using Filezilla I sent some local files to my main AWS directory and then I copied those files to the HDFS directory on that same instance.
+​
+
+Q1 : What is the basic difference between RDBMS and Hadoop?
+Q1 : What is the basic difference between RDBMS and Hadoop?
+
+Hadoop is a schema-on-read system which basically allows you to store any type of data on any form. It's up to the user to decide which schema to use when retrieving data from it and its data is only for reading purposes. This approach makes it very flexible and very scalable. To scale out you just need to add new servers. RDBMS is a schema-on-write (also known as transactional) system that allows you to verify the data before it's stored. This type of system complies to ACID rules which makes it more adequate to structured data that follow specific formats and constraints. Users of RDBMS can interact with it and perform complex queries on-the-fly. Hadoop is better suited for batch processing and it's not as interactive as RDBMS can be. It does allow you to process data in parallel using a MapReduce processing component. RDBMS works faster and better to other complex queries but also requires data to be more structure and it's more difficult to scale. RDMBS could scale up, say by adding more processing power and storage and memory performance per server but not scale out the way Hadoop can. Hadoop would work better for massive amounts of data.
+
+Q2 : List out the components of Hadoop?
+Q2 : List out the components of Hadoop?
+
+There are two main components:
+1) HDFS which is the filing system that stores documents (data) of any type and form. The filing system has a Namenode that regulates access from clients and Datanodes which are actually the servers where data is stored.
+2) MapReduce that can in parallel process data following a set of instructions given by the user. Each server can run jobs that follow user-defined mapping operations that result in aggregated output that gets consolidated across multiple servers.
+
+Q3 : What are the processes in Hadoop?
+
+MapReduce include a set of algorithms that run simultaneously on a cluster of servers in a way that can distribute the processing of large amounts of data using very simple mapping and aggregation operations so that batch results can be obtained fairly quickly. They may not be 100% accurate but they're good enough considering the amount of data being processed.
+
+Q4 : What kind of replication is present for hdfs?
+
+ In general users can determine the replication factor applied to each file.
+Datasets are replicated on different servers so that when a server goes down, the datasets present on them are also being processed in MapReduce operations performed in other servers. These datasets are stored as sequence of blocks that are copied on multiple servers to avoid data loss in the case a server goes down. In general users can determine the replication factor applied to each file.
+
+Q5 : Is Hadoop better for datafiles with small size?
+Q5 : Is Hadoop better for datafiles with small size?
+
+Hadoop works better for massive amounts of data that can be chopped into blocks that then are replicated across as many servers as users determine appropiate. Datafiles can actually be quite large and they're broken into manageable pieces (blocks) that can fit storage capacity of servers. If datafiles are small there might not be the need to use Hadoop unless you're actually storing a large amount of small datafiles so that in aggregate summs up to massive amounts of data or the data you're capturing in the files is very unstructured.
+
+Q6: since the Hadoop command is deprecated, what can you use instead for same result.
+Q6: since the Hadoop command is deprecated, what can you use instead for same result.
+
+Instead of dfs you can use fs since you're only working on your local file. I would guess that as you add a namenode and multiple datanodes using dfs is probably required as you are no longer having your data files on the local directory but across multiple servers. 
