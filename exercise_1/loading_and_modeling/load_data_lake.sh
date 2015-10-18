@@ -27,10 +27,10 @@ hadoop fs -mkdir hdfs/user
 hadoop fs -mkdir hdfs/user/ale
 hadoop fs -mkdir hdfs/user/ale/hospital_compare
 
-hadoop fs -put /root/user/ale/hospital_compare/hospital.csv /root/hdfs/user/ale/hospital_compare
+hadoop fs -put /root/user/ale/hospital_compare/hospital.csv hdfs/user/ale/hospital_compare
 
-hadoop fs -put /root/user/ale/hospital_compare/effective_care.csv /root/hdfs/user/ale/hospital_compare
+hadoop fs -put /root/user/ale/hospital_compare/effective_care.csv hdfs/user/ale/hospital_compare
 
-hadoop fs -put /root/user/ale/hospital_compare/readmissions.csv /root/hdfs/user/ale/hospital_compare
+hadoop fs -put /root/user/ale/hospital_compare/readmissions.csv hdfs/user/ale/hospital_compare
 
-hadoop fs -put /root/user/ale/hospital_compare/surveys_responses.csv /root/hdfs/user/ale/hospital_compare
+hadoop fs -put /root/user/ale/hospital_compare/surveys_responses.csv hdfs/user/ale/hospital_compare
