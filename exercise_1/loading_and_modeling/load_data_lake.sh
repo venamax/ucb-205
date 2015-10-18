@@ -4,13 +4,6 @@
 
 
 #### Let's create directories
-mkdir raw_data
-
-mkdir user
-
-mkdir user/ale
-
-mkdir user/ale/hospital_compare
 
 
 
