@@ -25,10 +25,10 @@ tail -n +2 /root/raw_data/hvbp_tps_08_06_2015.csv > /root/user/ale/hospital_comp
 
 hadoop fs -mkdir /root/hdfs/user/ale/hospital_compare
 
-hadood fs -put /root/user/ale/hospital_compare/hospital.csv /root/hdfs/user/ale/hospital_compare
+hadoop fs -put /root/user/ale/hospital_compare/hospital.csv /root/hdfs/user/ale/hospital_compare
 
-hadood fs -put /root/user/ale/hospital_compare/effective_care.csv /root/hdfs/user/ale/hospital_compare
+hadoop fs -put /root/user/ale/hospital_compare/effective_care.csv /root/hdfs/user/ale/hospital_compare
 
-hadood fs -put /root/user/ale/hospital_compare/readmissions.csv /root/hdfs/user/ale/hospital_compare
+hadoop fs -put /root/user/ale/hospital_compare/readmissions.csv /root/hdfs/user/ale/hospital_compare
 
-hadood fs -put /root/user/ale/hospital_compare/surveys_responses.csv /root/hdfs/user/ale/hospital_compare
+hadoop fs -put /root/user/ale/hospital_compare/surveys_responses.csv /root/hdfs/user/ale/hospital_compare
