@@ -11,7 +11,7 @@ HOSPITAL_TYPE varchar(38),
 HOSPITAL_OWNERSHIP varchar(45),
 EMERGENCY_SERVICES varchar(5))
 row format delimited
-fields terminated by 't'
+fields terminated by ','
 stored as textfile
 LOCATION '/data/w205';
 
@@ -37,7 +37,7 @@ FOOTNOTE varchar(181),
 MEASURE_START_DATE varchar(12),
 MEASURE_END_DATE varchar(12))
 row format delimited
-fields terminated by 't'
+fields terminated by ','
 stored as textfile
 LOCATION '/data/w205';
 
@@ -64,7 +64,7 @@ FOOTNOTE varchar(58),
 MEASURE_START_DATE varchar(12),
 MEASURE_END_DATE varchar(12))
 row format delimited
-fields terminated by 't'
+fields terminated by ','
 stored as textfile
 LOCATION '/data/w205';
 
@@ -106,10 +106,10 @@ OVERALL_RATING_DIMENSION_SCORE varchar(15),
 HCAHPS_BASE_SCORE varchar(15),
 HCAHPS_CONSISTENCY_SCORE varchar(15))
 row format delimited
-fields terminated by 't'
+fields terminated by ','
 stored as textfile
 LOCATION '/data/w205';
 
-LOAD DATA LOCAL INPATH 'ucb-205/exercise_1/loading_and_modeling/survey_responses.csv'
+LOAD DATA LOCAL INPATH 'ucb-205/exercise_1/loading_and_modeling/surveys_responses.csv'
 OVERWRITE INTO TABLE survey_table;
 
