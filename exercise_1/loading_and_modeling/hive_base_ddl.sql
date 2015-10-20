@@ -10,10 +10,14 @@ PHONE_NUMBER varchar(12),
 HOSPITAL_TYPE varchar(38),
 HOSPITAL_OWNERSHIP varchar(45),
 EMERGENCY_SERVICES varchar(5))
-row format delimited
-fields terminated by ','
-stored as textfile
-LOCATION '/data/w205';
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+'separatorChar' = ',',
+'quoteChar' = '"',
+'escapeChar' = '\\'
+)
+STORED AS TEXTFILE
+LOCATION '/hive_tables';
 
 LOAD DATA LOCAL INPATH 'ucb-205/exercise_1/loading_and_modeling/hospital.csv'
 OVERWRITE INTO TABLE hospital_table;
@@ -39,7 +43,7 @@ MEASURE_END_DATE varchar(12))
 row format delimited
 fields terminated by ','
 stored as textfile
-LOCATION '/data/w205';
+LOCATION '/hive_tables';
 
 LOAD DATA LOCAL INPATH 'ucb-205/exercise_1/loading_and_modeling/effective_care.csv'
 OVERWRITE INTO TABLE effective_table;
