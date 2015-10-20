@@ -40,9 +40,13 @@ SAMPLE varchar(15),
 FOOTNOTE varchar(181),
 MEASURE_START_DATE varchar(12),
 MEASURE_END_DATE varchar(12))
-row format delimited
-fields terminated by ','
-stored as textfile
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+'separatorChar' = ',',
+'quoteChar' = '"',
+'escapeChar' = '\\'
+)
+STORED AS TEXTFILE
 LOCATION '/hive_tables';
 
 LOAD DATA LOCAL INPATH 'ucb-205/exercise_1/loading_and_modeling/effective_care.csv'
@@ -67,10 +71,14 @@ HIGHER_ESTIMATE varchar(15),
 FOOTNOTE varchar(58),
 MEASURE_START_DATE varchar(12),
 MEASURE_END_DATE varchar(12))
-row format delimited
-fields terminated by ','
-stored as textfile
-LOCATION '/data/w205';
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+'separatorChar' = ',',
+'quoteChar' = '"',
+'escapeChar' = '\\'
+)
+STORED AS TEXTFILE
+LOCATION '/hive_tables';
 
 LOAD DATA LOCAL INPATH 'ucb-205/exercise_1/loading_and_modeling/readmissions.csv'
 OVERWRITE INTO TABLE readmissions_table;
@@ -109,10 +117,14 @@ OVERALL_RATING_IMPROVEMENT_PTS varchar(15),
 OVERALL_RATING_DIMENSION_SCORE varchar(15),
 HCAHPS_BASE_SCORE varchar(15),
 HCAHPS_CONSISTENCY_SCORE varchar(15))
-row format delimited
-fields terminated by ','
-stored as textfile
-LOCATION '/data/w205';
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+'separatorChar' = ',',
+'quoteChar' = '"',
+'escapeChar' = '\\'
+)
+STORED AS TEXTFILE
+LOCATION '/hive_tables';
 
 LOAD DATA LOCAL INPATH 'ucb-205/exercise_1/loading_and_modeling/surveys_responses.csv'
 OVERWRITE INTO TABLE survey_table;
