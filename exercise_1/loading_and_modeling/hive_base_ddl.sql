@@ -1,3 +1,4 @@
+DROP TABLE hospital_table
 CREATE EXTERNAL TABLE hospital_table
 (PROVIDER_ID varchar(8),
 HOSPITAL_NAME varchar(52),
@@ -23,6 +24,7 @@ LOAD DATA LOCAL INPATH 'ucb-205/exercise_1/loading_and_modeling/hospital.csv'
 OVERWRITE INTO TABLE hospital_table;
 
 
+DROP TABLE effective_table
 CREATE EXTERNAL TABLE effective_table
 (PROVIDER_ID varchar(8),
 HOSPITAL_NAME varchar(52),
@@ -52,6 +54,7 @@ LOCATION '/hive_tables';
 LOAD DATA LOCAL INPATH 'ucb-205/exercise_1/loading_and_modeling/effective_care.csv'
 OVERWRITE INTO TABLE effective_table;
 
+DROP TABLE readmissions_table
 CREATE EXTERNAL TABLE readmissions_table
 (PROVIDER_ID varchar(8),
 HOSPITAL_NAME varchar(52),
@@ -83,6 +86,7 @@ LOCATION '/hive_tables';
 LOAD DATA LOCAL INPATH 'ucb-205/exercise_1/loading_and_modeling/readmissions.csv'
 OVERWRITE INTO TABLE readmissions_table;
 
+DROP TABLE survey_table
 CREATE EXTERNAL TABLE survey_table
 (PROVIDER_ID varchar(8),
 HOSPITAL_NAME varchar(52),
