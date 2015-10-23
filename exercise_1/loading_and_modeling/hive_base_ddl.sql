@@ -1,5 +1,5 @@
-DROP TABLE hospital_table
-CREATE EXTERNAL TABLE hospital_table
+DROP TABLE hospital_table;
+CREATE EXTERNAL TABLE IF NOT EXISTS hospital_table
 (PROVIDER_ID varchar(8),
 HOSPITAL_NAME varchar(52),
 ADDRESS varchar(52),
@@ -18,13 +18,14 @@ WITH SERDEPROPERTIES (
 'escapeChar' = '\\'
 )
 STORED AS TEXTFILE
-LOCATION '/hive_tables';
+LOCATION '/user/w205/hive_tables/hospital';
 
 LOAD DATA LOCAL INPATH 'ucb-205/exercise_1/loading_and_modeling/hospital.csv'
 OVERWRITE INTO TABLE hospital_table;
 
+SELECT * FROM hospital_table LIMIT 10;
 
-DROP TABLE effective_table
+DROP TABLE effective_table;
 CREATE EXTERNAL TABLE effective_table
 (PROVIDER_ID varchar(8),
 HOSPITAL_NAME varchar(52),
@@ -49,12 +50,19 @@ WITH SERDEPROPERTIES (
 'escapeChar' = '\\'
 )
 STORED AS TEXTFILE
-LOCATION '/hive_tables';
+LOCATION '/user/w205/hive_tables/effective';
 
 LOAD DATA LOCAL INPATH 'ucb-205/exercise_1/loading_and_modeling/effective_care.csv'
 OVERWRITE INTO TABLE effective_table;
 
-DROP TABLE readmissions_table
+SELECT * FROM effective_table LIMIT 10;
+SELECT condition, measure_id, measure_name, sum(score), count(*), sum(score)/count(*)
+FROM effective_table
+GROUP BY condition, measure_id, measure_name
+ORDER BY condition;
+
+
+DROP TABLE readmissions_table;
 CREATE EXTERNAL TABLE readmissions_table
 (PROVIDER_ID varchar(8),
 HOSPITAL_NAME varchar(52),
@@ -81,12 +89,19 @@ WITH SERDEPROPERTIES (
 'escapeChar' = '\\'
 )
 STORED AS TEXTFILE
-LOCATION '/hive_tables';
+LOCATION '/user/w205/hive_tables/readmissions';
 
 LOAD DATA LOCAL INPATH 'ucb-205/exercise_1/loading_and_modeling/readmissions.csv'
 OVERWRITE INTO TABLE readmissions_table;
 
-DROP TABLE survey_table
+SELECT measure_id,measure_name,sum(score), count(*), sum(score)/count(*) 
+FROM readmissions_table 
+GROUP BY measure_id, measure_name  
+ORDER BY measure_id;
+
+
+
+DROP TABLE survey_table;
 CREATE EXTERNAL TABLE survey_table
 (PROVIDER_ID varchar(8),
 HOSPITAL_NAME varchar(52),
@@ -128,8 +143,13 @@ WITH SERDEPROPERTIES (
 'escapeChar' = '\\'
 )
 STORED AS TEXTFILE
-LOCATION '/hive_tables';
+LOCATION '/user/w205/hive_tables/surveys';
 
 LOAD DATA LOCAL INPATH 'ucb-205/exercise_1/loading_and_modeling/surveys_responses.csv'
 OVERWRITE INTO TABLE survey_table;
 
+SELECT state, sum(comm_doctors_achievement_pts)/count(*),
+sum(comm_doctors_improvement_pts)/count(*), sum(comm_doctors_dimension_score)/count(*) 
+FROM survey_table
+WHERE comm_doctors_achievement_pts is not NULL
+GROUP BY state
