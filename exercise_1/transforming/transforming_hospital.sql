@@ -1,13 +1,14 @@
 DROP TABLE hospital_care;
 CREATE EXTERNAL TABLE IF NOT EXISTS hospital_care
-(HOSPITAL_NAME varchar(4),
-SCORE_CARE float
+(HOSPITAL_NAME varchar(52),
+SCORE_CARE float,
+SCORED_SD float
 )
 STORED AS TEXTFILE
 LOCATION '/user/w205/hive_tables/hospital/care';
 
 INSERT OVERWRITE TABLE hospital_care
-SELECT hospital_name, avg(score) 
+SELECT hospital_name, avg(score), stddev(score)
 FROM effective_table
 WHERE score > 1 AND score <= 100
 GROUP BY hospital_name
@@ -16,7 +17,7 @@ ORDER BY hospital_name;
 
 DROP TABLE hospital_surveys;
 CREATE EXTERNAL TABLE IF NOT EXISTS hospital_surveys
-(HOSPITAL_NAME varchar(4),
+(HOSPITAL_NAME varchar(52),
 SCORE_SURVEYS float
 )
 STORED AS TEXTFILE
@@ -35,7 +36,7 @@ ORDER BY hospital_name;
 
 DROP TABLE hospital_results;
 CREATE EXTERNAL TABLE IF NOT EXISTS hospital_results
-(HOSPITAL_NAME varchar(4),
+(HOSPITAL_NAME varchar(52),
 READMISSIONS_ID varchar(20),
 SCORE_RESULTS float
 )

@@ -13,3 +13,6 @@ SELECT measure_id, measure_name, avg(score), stddev(score)
 FROM effective_table
 WHERE score > 1 AND score <= 100
 GROUP BY measure_id, measure_name;
+
+SELECT measure_name, score, standard_dev FROM care_variability ORDER BY standard_dev DESC;
+ 

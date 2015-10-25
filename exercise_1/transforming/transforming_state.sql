@@ -1,13 +1,14 @@
 DROP TABLE state_care;
 CREATE EXTERNAL TABLE IF NOT EXISTS state_care
 (STATE varchar(4),
-SCORE_CARE float
+SCORE_CARE float,
+SCORED_SD float
 )
 STORED AS TEXTFILE
 LOCATION '/user/w205/hive_tables/state/care';
 
 INSERT OVERWRITE TABLE state_care
-SELECT state, avg(score) 
+SELECT state, avg(score), stddev(score) 
 FROM effective_table
 WHERE score > 1 AND score <= 100
 GROUP BY state
