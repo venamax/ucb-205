@@ -1,0 +1,7 @@
+Procedure variability
+
+We also took a view on how each individual procedure varied across all hospitals.
+
+We found a good numebr of them showed large variabilities in teh score attained across all hospitals.
+
+In this folder you can find an image that summarizes the variability of each procedure

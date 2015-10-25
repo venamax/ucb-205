@@ -1,0 +1,6 @@
+Hospital performance vs survey response
+
+Here we tak a look on a state by state basis on how correlated is the responses rceived on surveys vs the scores attained in care procedures. Here we find big variations which reflects that survey responses are based on expectations from each community and in general they are not related to absolute performance of the hospitals.
+
+In the folder you can find an image that summarizes the differences in ranking seen among all states. Notice that the ones on top of the table are poorly rated by surveys in comparison to their care score performance. On the other hand the ones on the bottom are highly rated by surveys.
+

@@ -1,0 +1,15 @@
+Best Hospitals
+
+To come up with a fair assessment of each hospital, our ranking takes into account three input:
+
+1) Avg scores from all procedures
+2) Ranking in terms of performance on key indicators of readmissions and death 
+3) Response from surveys using base_score
+
+
+As each one of these source of information has its own scale, our ranking decided to simply convert each attribute into the realtive position of each hospital or each state. Notice that in the case of readmissions and death, our ranking takes this approach for each one of the measurements since they all have different scales. 
+
+We show the ranking for each of these sources on images that you can find on this folder. 
+
+We also provide the list of our top 50 hospitals based on the average ranking attained on each of these attributes: scores from care procedures, readmission and death metrics and response surveys.
+

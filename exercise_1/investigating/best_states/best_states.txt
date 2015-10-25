@@ -1,0 +1,13 @@
+Best States 
+
+For the ranking of states we took a similar approach as the ranking for hospitals.
+
+To come up with a fair assessment of each state, our ranking takes into account three input:
+
+1) Avg scores from all procedures
+2) Ranking in terms of performance on key indicators of readmissions and death 
+3) Response from surveys using base_score
+
+Notice that there are some difference in the overall performance on each of these attributes. Interesting enough we found that some of the top performers did well on all of three attributes while some of the bottom performers did bad on them.
+
+You can find the rankings on images located on this folder.
