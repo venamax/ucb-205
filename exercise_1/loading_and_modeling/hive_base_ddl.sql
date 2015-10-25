@@ -148,8 +148,4 @@ LOCATION '/user/w205/hive_tables/surveys';
 LOAD DATA LOCAL INPATH 'ucb-205/exercise_1/loading_and_modeling/surveys_responses.csv'
 OVERWRITE INTO TABLE survey_table;
 
-SELECT state, sum(comm_doctors_achievement_pts)/count(*),
-sum(comm_doctors_improvement_pts)/count(*), sum(comm_doctors_dimension_score)/count(*) 
-FROM survey_table
-WHERE comm_doctors_achievement_pts is not NULL
-GROUP BY state
+

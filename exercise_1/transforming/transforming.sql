@@ -100,7 +100,8 @@ COMM_NURSES_IMPROVEMENT_PTS varchar(15),
 COMM_NURSES_DIMENSION_SCORE varchar(15),
 COMM_DOCTORS_ACHIEVEMENT_PTS varchar(15),
 COMM_DOCTORS_IMPROVEMENT_PTS varchar(15),
-COMM_DOCTORS_DIMENSION_SCORE varchar(15)
+COMM_DOCTORS_DIMENSION_SCORE varchar(15),
+SCORE varchar(15)
 )
 STORED AS TEXTFILE
 LOCATION '/user/w205/hive_tables/response';
@@ -109,5 +110,14 @@ LOCATION '/user/w205/hive_tables/response';
 
 INSERT OVERWRITE TABLE response
 SELECT provider_id, 
-comm_nurses_achievement_pts, comm_nurses_improvement_pts, comm_nurses_dimension_score,comm_doctors_achievement_pts, comm_doctors_improvement_pts, comm_doctors_dimension_score 
+comm_nurses_achievement_pts, comm_nurses_improvement_pts, comm_nurses_dimension_score,
+comm_doctors_achievement_pts, comm_doctors_improvement_pts, comm_doctors_dimension_score, 
+(
+comm_nurses_achievement_pts 
++ comm_nurses_improvement_pts 
++ comm_nurses_dimension_score
++ comm_doctors_achievement_pts 
++ comm_doctors_improvement_pts 
++ comm_doctors_dimension_score
+) 
 FROM survey_table;
