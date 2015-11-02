@@ -16,3 +16,4 @@ INTO TABLE Web_Session_Log;
 SELECT REFERERURL, count(*)
 FROM Web_Session_Log
 GROUP BY REFERERURL;
+

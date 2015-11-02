@@ -1,0 +1,15 @@
+CodeAcademy RESTful API and Python Tutorial
+===============================================================================
+https://www.codecademy.com/courses/python-intermediate-en-6zbLp/0/1?curriculum_id=50ecbb00306689057a000188
+    
+
+Other Resources
+===============================================================================
+Tutorial for learning how to build restful web services. 
+http://www.restapitutorial.com/
+
+50 Most Popular APIs for Developers:
+http://www.computersciencezone.org/50-most-useful-apis-for-developers/
+
+Twitter API tutorial
+http://socialmedia-class.org/twittertutorial.html

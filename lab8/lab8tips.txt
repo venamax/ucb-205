@@ -1,0 +1,7 @@
+ hive --service hiveserver2 
+ 
+ ps aux | grep -i hiveserver
+ 
+  https://downloads.cloudera.com/connectors/hive_odbc_2.5.16.1005/MacOSX/ClouderaHiveODBC.dmg
+  
+  
