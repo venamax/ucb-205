@@ -1,5 +1,5 @@
 from __future__ import absolute_import, print_function,unicode_literals 
-import re from streamparse.bolt 
+import itertools from streamparse.bolt 
 import Bolt 
 def ascii_string(s): 
     return all(ord(c) < 128 for c in s) 
