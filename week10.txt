@@ -1,0 +1,21 @@
+Open Refine
+=================================================================
+* Watch Introduction (6:48) - https://www.youtube.com/watch?v=B70J_H_zAWM
+* Install Open Refine (http://openrefine.org/download.html)
+* Download a data set
+Download City of Berkeley Employee Salaries - 2013 Data from the link below:
+https://data.cityofberkeley.info/Economic-Data/City-of-Berkeley-Employee-Salaries-2013/ifen-52iq
+(Follow: Export -> Download as CSV)
+
+* Create a new OpenRefine Project and load the data
+* Try to answer a few Questions 
+
+Q1: Who gets the highest base pay in the city?
+- To answer this question, instead of sorting on the Base Pay column, create a histogram of all Base Pays and navigate to the highest ones.
+- A transformation is needed: 
+--- Remove The "$" from salaries in Base Pay Column (use: value.replace("$", "") )
+--- Transform values to numbers
+
+Q2: Who gets the highest 'total pay + benefits' in the city?
+Q3: Group all police related job titles to a 'Police' job title
+Q4: Export all information related to 'Police' jobs to a new CSV file.
