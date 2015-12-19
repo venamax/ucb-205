@@ -1,0 +1,7 @@
+Submit 4b.
+
+10 sec batches with a 30 sec window allows you to update your count with a maximum of 10 seconds delay for the last input
+
+30 sec batch will have higher delays of up to 30 sec.
+
+ 
